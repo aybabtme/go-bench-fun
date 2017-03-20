@@ -13,7 +13,7 @@ import (
 )
 
 func BenchmarkUUID(b *testing.B)         { benchmarkUUID(b, b.N) }
-func BenchmarkParallelUUID(b *testing.B) { parallelBench(b, runtime.NumCPU()/2, b.N, benchmarkUUID) }
+func BenchmarkParallelUUID(b *testing.B) { parallelBench(b, runtime.NumCPU(), b.N, benchmarkUUID) }
 
 func benchmarkUUID(b *testing.B, n int) {
 	dontOptimizeMeAway := true
@@ -27,7 +27,7 @@ func benchmarkUUID(b *testing.B, n int) {
 }
 
 func BenchmarkBcrypt(b *testing.B)         { benchmarkBcrypt(b, b.N) }
-func BenchmarkParallelBcrypt(b *testing.B) { parallelBench(b, runtime.NumCPU()/2, b.N, benchmarkBcrypt) }
+func BenchmarkParallelBcrypt(b *testing.B) { parallelBench(b, runtime.NumCPU(), b.N, benchmarkBcrypt) }
 
 func benchmarkBcrypt(b *testing.B, n int) {
 	dontOptimizeMeAway := true
